@@ -22,7 +22,7 @@ class List_to_do:
 
     def show_all(self):
         print('Twoja lista')
-        f=open('zadania.txt')
+        f = open('zadania.txt')
         print(f.read())
         f.close()
 
@@ -33,7 +33,7 @@ class List_to_do:
         f.close()
 
         file='zadania.txt'
-        searchtext=input('Wpisz nazwę zadania, które ma być zmienione. Następnie na nowo przejdź przez proces uzupełniania zadania z nowymi danymi5!')
+        searchtext=input('Wpisz nazwę zadania, które ma być zmienione. Następnie na nowo przejdź przez proces uzupełniania zadania z nowymi danymi!')
         change= make_task()
         with fileinput.FileInput(file,inplace = True, backup ='.bak') as f:
             for line in f:
@@ -49,16 +49,17 @@ def menu():
     try:
         list=List_to_do()
         while True:
+            print ('Witaj w programie List to do')
+            print ('Zarządzaj swoimi zadaniami')
             print('Co chcesz zrobić?')
             print('1. Utwórz nowe zadanie')
             print('2. Edytować istniejącą listę')
             print('3. Wyświetlić istnejącą listę')
-            print('x- aby wyjść')
-            choose=input()
-            choose.upper()
-            if choose=='X':
-                break
+            print('0- aby wyjść')
+            choose=int(input())
+            if choose==0:
                 print('Do widzenia')
+                break
             else:
                 choose= int(choose)
                 if choose==1:
@@ -113,10 +114,4 @@ def make_task():
               input('Wpisz planowaną datę zakończenia w formacie:mm/dd/yyyy'))
     return task.__str__()
 
-menu()
-
-
-
-#czas dodaj czas
-
-
+menu() #wywołanie programu
